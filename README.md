@@ -18,7 +18,19 @@ View the live deployment [here](https://language-learning-helper-will-helliwell.
 | Vercel | NextJs Deployment |
 | NeonDb | Database Deployment |
 
-## Planned Deployment Architecture
+## Deployment Architecture
+
+### Current Architecture
+- Development:
+    - App - npm run dev
+    - Database - following deployment, create a ‘development’ db branch in neon and point your local project to this via .env (this will ensure the dev database is an identical copy of the prod db at the given point in time, including configuration, schema and data).
+- Production:
+    - App - on merge to master: Vercel autodeploy of project code
+    - Database - on merge to master: npx prisma migrate deploy in GActions
+- Preview:
+    - Doesn’t yet exist. Can follow [this](https://neon.tech/blog/branching-with-preview-environments) if want to get it working.
+
+### Ideal Future Architecture
 
 Environments:
 - **Development** - all run on developer's local machine
