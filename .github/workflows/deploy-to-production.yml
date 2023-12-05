@@ -1,0 +1,26 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - "production_db_deploys_on_merge"
+
+jobs:
+  deploy-production:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get last commit SHA
+        id: get_sha
+        run: |
+          echo sha="${{ github.event.before }}" | cut -c1-8 >> $GITHUB_OUTPUT
+
+      - name: Run Prisma Migrate
+        run: |
+          touch .env
+          echo DATABASE_URL="${{ secrets.DATABASE_URL}}" >> .env
+          echo DIRECT_DATABASE_URL="${{ secrets.DIRECT_DATABASE_URL}}" >> .env
+          npx prisma migrate deploy
