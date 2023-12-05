@@ -3,7 +3,7 @@ name: Deploy Production
 on:
   push:
     branches:
-      - "production_db_deploys_on_merge"
+      - "master"
 
 jobs:
   deploy-production:
