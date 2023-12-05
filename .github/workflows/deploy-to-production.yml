@@ -21,6 +21,11 @@ jobs:
       - name: Run Prisma Migrate
         run: |
           touch .env
+          echo '.env before'
+          cat .env
           echo DATABASE_URL="${{ secrets.DATABASE_URL_LIVE_POOLED}}" >> .env
           echo DIRECT_DATABASE_URL="${{ secrets.DATABASE_URL_LIVE_DIRECT}}" >> .env
+          echo '.env after'
+          cat .env
+          echo 'about to pmd'
           npx prisma migrate deploy
