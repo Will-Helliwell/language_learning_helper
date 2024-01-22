@@ -3,6 +3,14 @@
 
 View the live deployment [here](https://language-learning-helper-will-helliwell.vercel.app/).
 
+## Progress
+
+Working on:
+- Creating an authentication and authorization system so that a user can login
+
+Completed:
+- Setup the main repository and database, and deployed these to Vercel and NeonDb respectively
+  
 ## Stack
 
 | Tech | Use |
@@ -17,6 +25,10 @@ View the live deployment [here](https://language-learning-helper-will-helliwell.
 | Github Actions | CI Pipeline |
 | Vercel | NextJs Deployment |
 | NeonDb | Database Deployment |
+  
+## Database Architecture
+
+![image](https://github.com/Will-Helliwell/language_learning_helper/assets/68912961/f1088199-fe09-49c2-b955-6dbb2906c237)
 
 ## Deployment Architecture
 
